@@ -1,1 +1,2 @@
-console.log("hello");
+import "./modules/validation.js";
+import "./modules/style.css";
