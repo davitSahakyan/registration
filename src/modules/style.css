@@ -13,28 +13,27 @@
     display: flex;
     flex-direction: column;
 }
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-group span {
+    display: none;
+}
+.hasError input {
+    border: 1px solid red;
+}
+.hasError span {
+    color: red;
+    display: block;
+}
 .form input {
     font-size: 20px;
 }
 .title {
     margin: 10px 0;
     color: lightgray;
-}
-#loginError {
-    color: red;
-    display: none;
-}
-#nameError {
-    color: red;
-    display: none;
-}
-#lastnameError {
-    color: red;
-    display: none;
-}
-#passwordError {
-    color: red;
-    display: none;
 }
 .genderContainer {
     display: flex;

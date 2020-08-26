@@ -11,38 +11,52 @@
             <h1>Registration</h1>
             <div class="loginContainer">
                 <form class="form" method="GET" name="form" id="form">
-                    <div class="title">login</div>
-                    <input type="text" id="loginInput" name="login" />
-                    <div id="loginError">Please fill up your login</div>
-
-                    <div class="title">name</div>
-                    <input type="text" id="nameInput" name="name" />
-                    <div id="nameError">Please fill up your name</div>
-
-                    <div class="title">lastname</div>
-                    <input type="text" id="lastnameInput" name="lastname" />
-                    <div id="lastnameError">Please fill up your lastname</div>
-
-                    <div class="title">password</div>
-                    <input type="password" id="passInput" name="password" />
-                    <div id="passwordError">Please fill up your password</div>
-
-                    <div class="title">gender</div>
-                    <div class="genderContainer">
+                    <div class="form-group">
+                        <label class="title">login</label>
+                        <input type="text" class="form-control" name="login" />
+                        <span>Please fill up your login</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="title">name</label>
+                        <input type="text" class="form-control" name="name" />
+                        <span>Please fill up your name</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="title">lastname</label>
                         <input
-                            type="radio"
-                            id="maleInput"
-                            name="gender"
-                            value="male"
+                            type="text"
+                            class="form-control"
+                            name="lastname"
                         />
-                        <label for="maleInput">Male</label>
+                        <span> Please fill up your lastname </span>
+                    </div>
+                    <div class="form-group">
+                        <label class="title">password</label>
                         <input
-                            type="radio"
-                            id="famaleInput"
-                            name="gender"
-                            value="famale"
+                            type="password"
+                            class="form-control"
+                            name="password"
                         />
-                        <label for="maleInput">Famale</label>
+                        <span> Please fill up your password </span>
+                    </div>
+                    <div>
+                        <label class="title">gender</label>
+                        <div class="genderContainer">
+                            <input
+                                type="radio"
+                                id="maleInput"
+                                name="gender"
+                                value="male"
+                            />
+                            <label for="maleInput">Male</label>
+                            <input
+                                type="radio"
+                                id="famaleInput"
+                                name="gender"
+                                value="famale"
+                            />
+                            <label for="maleInput">Famale</label>
+                        </div>
                     </div>
 
                     <button type="submit" id="loginButton">Registrate</button>
