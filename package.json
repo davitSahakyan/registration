@@ -1,25 +1,28 @@
 {
-  "name": "registaration",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "js",
-    "javascript"
-  ],
-  "author": "Davit Sahakyan",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "path": "^0.12.7",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
-  }
+    "name": "registaration",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack --mode development",
+        "build": "webpack --mode production"
+    },
+    "keywords": [
+        "js",
+        "javascript"
+    ],
+    "author": "Davit Sahakyan",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.11.4",
+        "@babel/preset-env": "^7.11.0",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "css-loader": "^4.2.2",
+        "path": "^0.12.7",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0"
+    }
 }
