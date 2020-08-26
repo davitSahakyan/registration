@@ -6,4 +6,16 @@ module.exports = {
         filename: "boundle.js",
         path: path.resolve(__dirname, "dist"),
     },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: "babel-loader",
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    },
 };
