@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="./dist/boundle.js"></script>
+        <script src="./dist/boundle.js" defer></script>
         <title>Registration</title>
     </head>
     <body>
@@ -17,31 +17,33 @@
 
                     <div class="title">name</div>
                     <input type="text" id="nameInput" name="name" />
-                    <div id="loginError">Please fill up your name</div>
+                    <div id="nameError">Please fill up your name</div>
 
                     <div class="title">lastname</div>
                     <input type="text" id="lastnameInput" name="lastname" />
-                    <div id="loginError">Please fill up your lastname</div>
+                    <div id="lastnameError">Please fill up your lastname</div>
 
                     <div class="title">password</div>
                     <input type="password" id="passInput" name="password" />
                     <div id="passwordError">Please fill up your password</div>
 
                     <div class="title">gender</div>
-                    <input
-                        type="radio"
-                        id="maleInput"
-                        name="gender"
-                        value="male"
-                    />
-                    <label for="maleInput">Male</label>
-                    <input
-                        type="radio"
-                        id="passInput"
-                        name="gender"
-                        value="male"
-                    />
-                    <label for="maleInput">Famale</label>
+                    <div class="genderContainer">
+                        <input
+                            type="radio"
+                            id="maleInput"
+                            name="gender"
+                            value="male"
+                        />
+                        <label for="maleInput">Male</label>
+                        <input
+                            type="radio"
+                            id="famaleInput"
+                            name="gender"
+                            value="famale"
+                        />
+                        <label for="maleInput">Famale</label>
+                    </div>
 
                     <button type="submit" id="loginButton">Registrate</button>
                 </form>

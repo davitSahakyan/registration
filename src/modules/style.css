@@ -24,9 +24,20 @@
     color: red;
     display: none;
 }
+#nameError {
+    color: red;
+    display: none;
+}
+#lastnameError {
+    color: red;
+    display: none;
+}
 #passwordError {
     color: red;
     display: none;
+}
+.genderContainer {
+    display: flex;
 }
 #loginButton {
     margin-top: 15px;
