@@ -7,8 +7,45 @@
         <title>Registration</title>
     </head>
     <body>
-        <div class="root">
+        <div class="container">
             <h1>Registration</h1>
+            <div class="loginContainer">
+                <form class="form" method="GET" name="form" id="form">
+                    <div class="title">login</div>
+                    <input type="text" id="loginInput" name="login" />
+                    <div id="loginError">Please fill up your login</div>
+
+                    <div class="title">name</div>
+                    <input type="text" id="nameInput" name="name" />
+                    <div id="loginError">Please fill up your name</div>
+
+                    <div class="title">lastname</div>
+                    <input type="text" id="lastnameInput" name="lastname" />
+                    <div id="loginError">Please fill up your lastname</div>
+
+                    <div class="title">password</div>
+                    <input type="password" id="passInput" name="password" />
+                    <div id="passwordError">Please fill up your password</div>
+
+                    <div class="title">gender</div>
+                    <input
+                        type="radio"
+                        id="maleInput"
+                        name="gender"
+                        value="male"
+                    />
+                    <label for="maleInput">Male</label>
+                    <input
+                        type="radio"
+                        id="passInput"
+                        name="gender"
+                        value="male"
+                    />
+                    <label for="maleInput">Famale</label>
+
+                    <button type="submit" id="loginButton">Registrate</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>
