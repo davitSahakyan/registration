@@ -1,8 +1,32 @@
 const inputs = Array.from(document.getElementsByClassName("form-control"));
 
 const form = document.getElementById("form");
+const loginForm = document.getElementById("loginForm");
 
 const removeSpace = (string) => string.replace(/\s+/, "");
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+const addErrorClass = (inputs) => {
+    inputs.forEach((input) => {
+        if (input.name === "login" && input.value.length < 6) {
+            input.parentElement.classList = "form-group hasError";
+            inputsAreValid = false;
+        }
+        if (input.name === "name" && input.value.length <= 2) {
+            input.parentElement.classList = "form-group hasError";
+            inputsAreValid = false;
+        }
+        if (input.name === "lastname" && input.value.length <= 2) {
+            input.parentElement.classList = "form-group hasError";
+            inputsAreValid = false;
+        }
+        if (input.name === "password" && input.value.length < 6) {
+            input.parentElement.classList = "form-group hasError";
+            inputsAreValid = false;
+        }
+    });
+};
 
 inputs.forEach((input) => {
     input.addEventListener("textInput", () => {
@@ -27,45 +51,63 @@ inputs.forEach((input) => {
 });
 
 const validation = () => {
-    console.log("iiiiii");
-    let canCreateUser = true;
-    inputs.forEach((input) => {
-        if (input.name === "login" && input.value.length < 6) {
-            input.parentElement.classList = "form-group hasError";
-            return false;
-        }
-        if (input.name === "name" && input.value.length <= 2) {
-            input.parentElement.classList = "form-group hasError";
-            return false;
-        }
-        if (input.name === "lastname" && input.value.length <= 2) {
-            input.parentElement.classList = "form-group hasError";
-            return false;
-        }
-        if (input.name === "password" && input.value.length < 6) {
-            input.parentElement.classList = "form-group hasError";
-            return false;
-        }
-        if (input.name === "gender") {
-            return false;
-        }
-        for (let i = 0; i < users.length; i++) {
-            if (input.name === "login" && input.value === users[i].login) {
-                canCreateUser = false;
+    let canCreateUser = false;
+    let inputsAreValid = true;
+    addErrorClass(inputs);
+    if (inputsAreValid) {
+        let loginInput = inputs.find((input) => input.name === "login");
+        if (users.length) {
+            for (let i = 0; i < users.length; i++) {
+                if (
+                    loginInput.name === "login" &&
+                    loginInput.value === users[i].login
+                ) {
+                    canCreateUser = false;
+                } else {
+                    canCreateUser = true;
+                }
             }
+        } else {
+            canCreateUser = true;
         }
-    });
-
+    }
     if (canCreateUser) {
         const formData = Object.fromEntries(
             new FormData(document.getElementById("form")).entries()
         );
         users.push(formData);
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("you have successfully registered");
     }
 };
 
-form.addEventListener("submit", (e) => {
-    validation();
-    console.log(users);
-    e.preventDefault();
-});
+const verifyUser = () => {
+    let inputsAreValid = true;
+    addErrorClass(inputs);
+    if (inputsAreValid) {
+        const formData = Object.fromEntries(
+            new FormData(document.getElementById("loginForm")).entries()
+        );
+        let foundRegistredUser = users.find(
+            (user) =>
+                user.login === formData.login &&
+                user.password === formData.password
+        );
+        if (foundRegistredUser) {
+            window.location = "./welcome.html";
+        }
+    }
+};
+
+if (form) {
+    form.addEventListener("submit", (e) => {
+        validation();
+        e.preventDefault();
+    });
+}
+if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+        verifyUser();
+        e.preventDefault();
+    });
+}
