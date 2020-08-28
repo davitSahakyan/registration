@@ -8,24 +8,26 @@ const removeSpace = (string) => string.replace(/\s+/, "");
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
 const addErrorClass = (inputs) => {
+    let inputsAreValid = true;
     inputs.forEach((input) => {
         if (input.name === "login" && input.value.length < 6) {
             input.parentElement.classList = "form-group hasError";
-            inputsAreValid = false;
+            inputsAreValid = false
         }
         if (input.name === "name" && input.value.length <= 2) {
             input.parentElement.classList = "form-group hasError";
-            inputsAreValid = false;
+            inputsAreValid = false
         }
         if (input.name === "lastname" && input.value.length <= 2) {
             input.parentElement.classList = "form-group hasError";
-            inputsAreValid = false;
+            inputsAreValid = false
         }
         if (input.name === "password" && input.value.length < 6) {
             input.parentElement.classList = "form-group hasError";
-            inputsAreValid = false;
+            inputsAreValid = false
         }
     });
+    return inputsAreValid
 };
 
 inputs.forEach((input) => {
@@ -52,8 +54,8 @@ inputs.forEach((input) => {
 
 const validation = () => {
     let canCreateUser = false;
-    let inputsAreValid = true;
-    addErrorClass(inputs);
+    let inputsAreValid;
+    inputsAreValid = addErrorClass(inputs);
     if (inputsAreValid) {
         let loginInput = inputs.find((input) => input.name === "login");
         if (users.length) {
@@ -76,6 +78,7 @@ const validation = () => {
         loginInput.parentElement.classList = "form-group hasError";
     }
     if (canCreateUser) {
+        console.log("inputsAreValid", inputsAreValid);
         const formData = Object.fromEntries(
             new FormData(document.getElementById("form")).entries()
         );
@@ -86,8 +89,8 @@ const validation = () => {
 };
 
 const verifyUser = () => {
-    let inputsAreValid = true;
-    addErrorClass(inputs);
+    let inputsAreValid;
+    inputsAreValid = addErrorClass(inputs);
     if (inputsAreValid) {
         const formData = Object.fromEntries(
             new FormData(document.getElementById("loginForm")).entries()

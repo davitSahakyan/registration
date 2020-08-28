@@ -1,74 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="./dist/boundle.js" defer></script>
-        <title>Registration</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Registration</h1>
-            <div class="loginContainer">
-                <form class="form" method="GET" name="form" id="form">
-                    <div class="form-group">
-                        <label class="title">login</label>
-                        <input type="text" class="form-control" name="login" />
-                        <span>Please fill up your login</span>
-                        <span>User with this login exists</span>
-                    </div>
-                    <div class="form-group">
-                        <label class="title">name</label>
-                        <input type="text" class="form-control" name="name" />
-                        <span>Please fill up your name</span>
-                    </div>
-                    <div class="form-group">
-                        <label class="title">lastname</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="lastname"
-                        />
-                        <span> Please fill up your lastname </span>
-                    </div>
-                    <div class="form-group">
-                        <label class="title">password</label>
-                        <input
-                            type="password"
-                            class="form-control"
-                            name="password"
-                        />
-                        <span> Please fill up your password </span>
-                    </div>
-                    <div>
-                        <label class="title">gender</label>
-                        <div class="genderContainer">
-                            <input
-                                type="radio"
-                                id="maleInput"
-                                name="gender"
-                                value="male"
-                            />
-                            <label for="maleInput">Male</label>
-                            <input
-                                type="radio"
-                                id="famaleInput"
-                                name="gender"
-                                value="famale"
-                            />
-                            <label for="maleInput">Famale</label>
-                        </div>
-                    </div>
 
-                    <button type="submit" id="loginButton">Registrate</button>
-                    <div>
-                        <span
-                            >if you already have account
-                            <a href="./login.html">log in</a>
-                        </span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/boundle.js" defer></script>
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <div class="loginContainer">
+            <form class="form" method="GET" name="form" id="form">
+                <div class="form-group">
+                    <label class="title">login</label>
+                    <input type="text" class="form-control" name="login">
+                    <span>Please fill up your login</span>
+                    <span>User with this login exists</span>
+                </div>
+                <div class="form-group">
+                    <label class="title">name</label>
+                    <input type="text" class="form-control" name="name">
+                    <span>Please fill up your name</span>
+                </div>
+                <div class="form-group">
+                    <label class="title">lastname</label>
+                    <input type="text" class="form-control" name="lastname">
+                    <span> Please fill up your lastname </span>
+                </div>
+                <div class="form-group">
+                    <label class="title">password</label>
+                    <input type="password" class="form-control" name="password">
+                    <span> Please fill up your password </span>
+                </div>
+                <div>
+                    <label class="title">gender</label>
+                    <div class="genderContainer">
+                        <input type="radio" id="maleInput" name="gender" value="male">
+                        <label for="maleInput">Male</label>
+                        <input type="radio" id="famaleInput" name="gender" value="famale">
+                        <label for="famaleInput">Famale</label>
                     </div>
-                </form>
-            </div>
+                </div>
+
+                <button type="submit" id="loginButton">Registrate</button>
+                <span>if you already have account
+                    <a href="./login.html">log in</a>
+                </span>
+            </form>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
