@@ -71,6 +71,10 @@ const validation = () => {
             canCreateUser = true;
         }
     }
+    if (inputsAreValid && !canCreateUser) {
+        let loginInput = inputs.find((input) => input.name === "login");
+        loginInput.parentElement.classList = "form-group hasError";
+    }
     if (canCreateUser) {
         const formData = Object.fromEntries(
             new FormData(document.getElementById("form")).entries()
@@ -95,6 +99,11 @@ const verifyUser = () => {
         );
         if (foundRegistredUser) {
             window.location = "./welcome.html";
+        } else {
+            inputs.forEach(
+                (input) =>
+                    (input.parentElement.classList = "form-group hasError")
+            );
         }
     }
 };
