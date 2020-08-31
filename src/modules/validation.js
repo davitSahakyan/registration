@@ -7,23 +7,32 @@ const removeSpace = (string) => string.replace(/\s+/, "");
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
+const removeClass = (element) => {
+    element.parentElement.classList.remove("hasError");
+    return true;
+}
+const addClass = (element) => {
+    element.parentElement.classList = "form-group hasError";
+}
+
 const addErrorClass = (inputs) => {
     let inputsAreValid = true;
     inputs.forEach((input) => {
         if (input.name === "login" && input.value.length < 6) {
-            input.parentElement.classList = "form-group hasError";
+            addClass(input)
             inputsAreValid = false
         }
         if (input.name === "name" && input.value.length <= 2) {
             input.parentElement.classList = "form-group hasError";
+            addClass(input)
             inputsAreValid = false
         }
         if (input.name === "lastname" && input.value.length <= 2) {
-            input.parentElement.classList = "form-group hasError";
+            addClass(input)
             inputsAreValid = false
         }
         if (input.name === "password" && input.value.length < 6) {
-            input.parentElement.classList = "form-group hasError";
+            addClass(input)
             inputsAreValid = false
         }
     });
@@ -34,20 +43,16 @@ inputs.forEach((input) => {
     input.addEventListener("textInput", () => {
         let WithoutFirstSpace = removeSpace(input.value);
         if (input.name === "login" && WithoutFirstSpace.length >= 6) {
-            input.parentElement.classList.remove("hasError");
-            return true;
+            return removeClass(input)
         }
         if (input.name === "name" && WithoutFirstSpace.length >= 2) {
-            input.parentElement.classList.remove("hasError");
-            return true;
+            return removeClass(input)
         }
         if (input.name === "lastname" && WithoutFirstSpace.length >= 2) {
-            input.parentElement.classList.remove("hasError");
-            return true;
+            return removeClass(input)
         }
         if (input.name === "password" && WithoutFirstSpace.length >= 6) {
-            input.parentElement.classList.remove("hasError");
-            return true;
+            return removeClass(input)
         }
     });
 });
@@ -59,16 +64,7 @@ const validation = () => {
     if (inputsAreValid) {
         let loginInput = inputs.find((input) => input.name === "login");
         if (users.length) {
-            for (let i = 0; i < users.length; i++) {
-                if (
-                    loginInput.name === "login" &&
-                    loginInput.value === users[i].login
-                ) {
-                    canCreateUser = false;
-                } else {
-                    canCreateUser = true;
-                }
-            }
+            canCreateUser = !Boolean(users.find(user => user.login === loginInput.value && loginInput.name === "login"))
         } else {
             canCreateUser = true;
         }

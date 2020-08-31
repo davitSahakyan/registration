@@ -35,9 +35,6 @@
     margin: 10px 0;
     color: lightgray;
 }
-.genderContainer {
-    display: flex;
-}
 #loginButton {
     margin-top: 15px;
     cursor: pointer;
